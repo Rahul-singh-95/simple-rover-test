@@ -1,0 +1,39 @@
+{
+    "ROS2.distro": "jazzy",
+    "python.autoComplete.extraPaths": [
+        "/home/rahul/build/my_py_pkg",
+        "/home/rahul/install/my_py_pkg/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/build/turtlesim_catch_them_all",
+        "/home/rahul/ros2_ws/install/turtlesim_catch_them_all/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/install/turtle_sim_catch_them_all/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/install/my_py_pkg/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/install/my_robot_interfaces/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/install/send_value/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/build/robot_localization",
+        "/home/rahul/ros2_practice_ws/install/robot_localization/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/build/name_pub_node",
+        "/home/rahul/ros2_practice_ws/install/name_pub_node/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/build/my_service_pkg",
+        "/home/rahul/ros2_practice_ws/install/my_service_pkg/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/install/my_custome_interfaces/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/rahul/build/my_py_pkg",
+        "/home/rahul/install/my_py_pkg/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/build/turtlesim_catch_them_all",
+        "/home/rahul/ros2_ws/install/turtlesim_catch_them_all/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/install/turtle_sim_catch_them_all/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/install/my_py_pkg/lib/python3.12/site-packages",
+        "/home/rahul/ros2_ws/install/my_robot_interfaces/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/install/send_value/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/build/robot_localization",
+        "/home/rahul/ros2_practice_ws/install/robot_localization/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/build/name_pub_node",
+        "/home/rahul/ros2_practice_ws/install/name_pub_node/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/build/my_service_pkg",
+        "/home/rahul/ros2_practice_ws/install/my_service_pkg/lib/python3.12/site-packages",
+        "/home/rahul/ros2_practice_ws/install/my_custome_interfaces/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}

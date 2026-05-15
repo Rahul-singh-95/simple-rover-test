@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="simplerover">
+
+    <xacro:include filename="$(find my_rover_description)/urdf/rover.ros2_control.xacro" />
+
+    <xacro:property name="custom_blue" value="0.165 0.431 0.808 0.8"/>
+    <xacro:property name="black" value="0 0 0 1"/>
+    <xacro:property name="silver" value="0.8 0.8 0.85 1"/>
+
+    <link name="base_footprint" />
+
+    <link name="base_link">
+
+        <inertial>
+            <origin xyz="0 0 0.03" rpy="0 0 0"/>  <!-- aligned with collision center -->
+            <mass value="0.6"/>
+            <inertia
+                ixx="0.00033483" ixy="0.0" ixz="0.0"
+                iyy="0.00024003" iyz="0.0"
+                izz="0.000294"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0.03" />
+            <geometry>
+                <box size="0.18 0.08 0.069" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_rover_description/meshes/simple_rover_base_frame.stl" />
+            </geometry>
+            <material name="custom_blue">
+                <color rgba="${custom_blue}"/>
+             </material>
+        </visual>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint" />
+        <child link="base_link" />
+        <origin rpy="0 0 0" xyz="0 0 0.02249" />
+    </joint>
+
+    <link name="right_wheel">
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.379"/>
+            <inertia
+                ixx="0.000151871664" ixy="0.0" ixz="0.0"
+                iyy="0.000260784995" iyz="0.0"
+                izz="0.000151870539"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.03250" />
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_rover_description/meshes/right_wheel.stl" />
+            </geometry>
+            <material name="black">
+                <color rgba="${black}"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="right_wheel_joint" type="continuous">
+        <parent link="base_link" />
+        <child link="right_wheel" />
+        <axis xyz="0 1 0" />
+        <origin rpy="0 0 0" xyz="0.055 -0.07400 0.010" />
+    </joint>
+
+     <link name="left_wheel">
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 3.14"/>
+            <mass value="0.379"/>
+            <inertia
+                ixx="0.000151871664" ixy="0.0" ixz="0.0"
+                iyy="0.000260784995" iyz="0.0"
+                izz="0.000151870539"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 3.14" />
+            <geometry>
+                <sphere radius="0.03250" />
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 3.14" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_rover_description/meshes/left_wheel.stl" />
+            </geometry>
+            <material name="black">
+                <color rgba="${black}"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="left_wheel_joint" type="continuous">
+        <parent link="base_link" />
+        <child link="left_wheel" />
+        <axis xyz="0 1 0" />
+        <origin rpy="0 0 0" xyz="0.055 0.07400 0.010" />
+    </joint>
+
+    <link name="caster_wheel">
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.048169"/>
+            <inertia
+                ixx="0.000002721" ixy="0.0" ixz="0.0"
+                iyy="0.000002721" iyz="0.0"
+                izz="0.000002240877"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.022499" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0.06 0 0" />
+            <geometry>
+                <mesh filename="package://my_rover_description/meshes/caster.stl" />
+            </geometry>
+            <material name="silver">
+                <color rgba="${silver}"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="caster_wheel" />
+        <origin rpy="0 0 0" xyz="-0.060 0 0" />
+    </joint>
+
+    <gazebo>
+        <plugin filename="libgz_ros2_control-system.so"
+            name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+
+            <parameters>
+                $(find my_rover_bringup)/config/my_rover_controller.yaml
+            </parameters>
+
+            </plugin>
+    </gazebo>
+
+    
+</robot>
+
+
