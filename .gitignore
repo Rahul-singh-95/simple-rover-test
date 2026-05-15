@@ -1,0 +1,12 @@
+build/
+install/
+log/
+
+*.py
+*.o
+*.so
+
+.vscode/
+.idea/
+
+.DS_Store
