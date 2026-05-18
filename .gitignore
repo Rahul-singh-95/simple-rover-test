@@ -2,11 +2,10 @@ build/
 install/
 log/
 
-*.py
-*.o
-*.so
+*.pyc
+__pycache__/
 
 .vscode/
-.idea/
-
-.DS_Store
+*.db
+*.shm
+*.wal
